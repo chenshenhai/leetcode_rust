@@ -22,6 +22,14 @@
 题目链接：https://leetcode-cn.com/problems/reverse-integer
 */
 
+pub struct Solution {}
+
+impl Solution {
+    pub fn reverse(x: i32) -> i32 {
+        // TODO
+    }
+}
+
 fn main() {
     println!("Hello, world!");
 }
