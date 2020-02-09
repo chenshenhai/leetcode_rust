@@ -1,5 +1,5 @@
 [package]
-name = "two-sum"
+name = "reverse_integer"
 version = "0.1.0"
 authors = ["chenshenhai <cshenhai@gmail.com>"]
 edition = "2018"
