@@ -26,16 +26,35 @@ struct  Solution {}
 impl Solution {
     pub fn longest_common_prefix(strs: Vec<String>) -> String {
         // TODO
-        let result = "fl";
+        let result = "";
+        if strs.len() != 0 {
+            let result_vec = vec![];
+            let mut min_len = strs[0].len();
+            for i in 1..strs.len() as usize {
+                if min_len > strs[i].len() {
+                    min_len = strs[i].len();
+                }
+            }
+
+            for i in 0..strs.len() as usize {
+                // TODO
+            } 
+        }
+        
+
         (&result).to_string()
     }
 }
 
 fn main() {
     let mut strs = std::vec::Vec::new();
-    strs.push("flower".to_string(), "flow".to_string(), "flight".to_string());
+    strs.push("flower".to_string());
+    strs.push("flow".to_string());
+    strs.push("flight".to_string());
     let result = Solution::longest_common_prefix(strs);
-    let expect = "fl";
+    let expect = "";
+
+
     assert_eq!(result, expect);
     println!("success!");
 }
