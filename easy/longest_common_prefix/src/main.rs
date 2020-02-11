@@ -28,7 +28,7 @@ impl Solution {
     pub fn longest_common_prefix(strs: Vec<String>) -> String {
         let result = "";
         
-        if strs.len() != 0 {
+        if strs.len() > 1 {
             let mut result_vec: Vec<u8> = vec![];
             let mut idx = 0;
             let mut over = false;
@@ -60,6 +60,9 @@ impl Solution {
 
             let result = std::str::from_utf8(&result_vec).unwrap().to_string();
             result 
+        } else if strs.len() == 1 {
+            let result = strs[0].to_string();
+            result
         } else {
             (&result).to_string()
         }
@@ -89,6 +92,12 @@ fn main() {
     strs.push("".to_string());
     let result = Solution::longest_common_prefix(strs);
     let expect = "";
+    assert_eq!(result, expect);
+
+    let mut strs = std::vec::Vec::new();
+    strs.push("a".to_string());
+    let result = Solution::longest_common_prefix(strs);
+    let expect = "a";
     assert_eq!(result, expect);
 
 
