@@ -23,26 +23,42 @@
 
 struct  Solution {}
 
+
 impl Solution {
     pub fn longest_common_prefix(strs: Vec<String>) -> String {
-        // TODO
         let result = "";
+        
         if strs.len() != 0 {
-            let result_vec = vec![];
-            let mut min_len = strs[0].len();
-            for i in 1..strs.len() as usize {
-                if min_len > strs[i].len() {
-                    min_len = strs[i].len();
+            let mut result_vec: Vec<u8> = vec![];
+            let mut idx = 0;
+            let mut over = false;
+            loop {
+                for i in 0..strs.len() as usize {
+                    if over {
+                        break;
+                    }
+                    let bytes = strs[i].as_bytes();
+                    if i == 0 {
+                        result_vec.push(bytes[idx] as u8);
+                        continue;
+                    }
+                    if result_vec[idx] != bytes[idx] {
+                        over = true;
+                        result_vec.pop();
+                        break;
+                    }
                 }
+                if over {
+                    break;
+                }
+                idx += 1;
             }
 
-            for i in 0..strs.len() as usize {
-                // TODO
-            } 
+            let result = std::str::from_utf8(&result_vec).unwrap().to_string();
+            result 
+        } else {
+            (&result).to_string()
         }
-        
-
-        (&result).to_string()
     }
 }
 
@@ -52,9 +68,18 @@ fn main() {
     strs.push("flow".to_string());
     strs.push("flight".to_string());
     let result = Solution::longest_common_prefix(strs);
-    let expect = "";
-
-
+    let expect = "fl";
     assert_eq!(result, expect);
+
+
+
+    let mut strs = std::vec::Vec::new();
+    strs.push("aabbccdd".to_string());
+    strs.push("1122345".to_string());
+    strs.push("xxxxxxx".to_string());
+    let result = Solution::longest_common_prefix(strs);
+    let expect = "";
+    assert_eq!(result, expect);
+
     println!("success!");
 }
