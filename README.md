@@ -10,5 +10,5 @@
   - [整数翻转](./easy/reverse_integer/src/main.rs)
   - [回文数](./easy/palindrome_number/src/main.rs)
   - [罗马数字转整数] // TODO
-  - [最长公共前缀] // TODO
+  - [最长公共前缀](./easy/longest_common_prefix/src/main.rs)
 
