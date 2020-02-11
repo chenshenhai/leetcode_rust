@@ -23,7 +23,6 @@
 
 struct  Solution {}
 
-
 impl Solution {
     pub fn longest_common_prefix(strs: Vec<String>) -> String {
         let result = "";
@@ -32,6 +31,7 @@ impl Solution {
             let mut result_vec: Vec<u8> = vec![];
             let mut idx = 0;
             let mut over = false;
+            let mut current_byte = 0;
             loop {
                 for i in 0..strs.len() as usize {
                     if over {
@@ -42,12 +42,14 @@ impl Solution {
                         over = true;
                         break;
                     } else if i == 0 {
-                        result_vec.push(bytes[idx] as u8);
+                        current_byte = bytes[idx];
                         continue;
-                    } else if result_vec[idx] != bytes[idx] {
+                    } else if current_byte != bytes[idx] {
                         over = true;
-                        result_vec.pop();
                         break;
+                    }
+                    if i + 1 == strs.len() {
+                        result_vec.push(current_byte);
                     }
                 }
                 if over {
@@ -103,6 +105,13 @@ fn main() {
     strs.push("c".to_string());
     let result = Solution::longest_common_prefix(strs);
     let expect = "c";
+    assert_eq!(result, expect);
+
+    let mut strs = std::vec::Vec::new();
+    strs.push("aa".to_string());
+    strs.push("a".to_string());
+    let result = Solution::longest_common_prefix(strs);
+    let expect = "a";
     assert_eq!(result, expect);
 
 
