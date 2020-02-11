@@ -38,15 +38,13 @@ impl Solution {
                         break;
                     }
                     let bytes = strs[i].as_bytes();
-                    if bytes.len() == 0 {
+                    if bytes.len() == 0 || bytes.len() <= idx {
                         over = true;
                         break;
-                    }
-                    if i == 0 {
+                    } else if i == 0 {
                         result_vec.push(bytes[idx] as u8);
                         continue;
-                    }
-                    if result_vec[idx] != bytes[idx] {
+                    } else if result_vec[idx] != bytes[idx] {
                         over = true;
                         result_vec.pop();
                         break;
@@ -98,6 +96,13 @@ fn main() {
     strs.push("a".to_string());
     let result = Solution::longest_common_prefix(strs);
     let expect = "a";
+    assert_eq!(result, expect);
+
+    let mut strs = std::vec::Vec::new();
+    strs.push("c".to_string());
+    strs.push("c".to_string());
+    let result = Solution::longest_common_prefix(strs);
+    let expect = "c";
     assert_eq!(result, expect);
 
 
