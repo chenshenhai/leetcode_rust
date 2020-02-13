@@ -9,7 +9,7 @@
   - [两数之和](./easy/two_sum/src/main.rs)
   - [整数翻转](./easy/reverse_integer/src/main.rs)
   - [回文数](./easy/palindrome_number/src/main.rs)
-  - [罗马数字转整数] // TODO
+  - [罗马数字转整数](./easy/roman_to_integer/src/main.rs)
   - [最长公共前缀](./easy/longest_common_prefix/src/main.rs)
   - [有效括号] // TODO
 

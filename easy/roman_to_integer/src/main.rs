@@ -52,23 +52,50 @@ struct Solution {}
 impl Solution {
     pub fn roman_to_int(s: String) -> i32 {
         let bytes = s.as_bytes();
-        let mut num_vec = vec![];
+        let mut num_vec = std::vec::Vec::<i32>::new();
         // IVXLCDM 
         // 对应 ascii  [73, 86, 88, 76, 67, 68, 77]
         // 对应数值 [1, 5, 10, 50, 100, 500, 1000]
         for i in 0..bytes.len() as usize {
-            
+            let current_byte = bytes[i];
+            match current_byte {
+                73 => num_vec.push(1),
+                86 => num_vec.push(5),
+                88 => num_vec.push(10),
+                76 => num_vec.push(50),
+                67 => num_vec.push(100),
+                68 => num_vec.push(500),
+                77 => num_vec.push(1000),
+                _=> continue,
+            }
         }
-
-        let result = 1994;
+        let mut result = 0;
+        for i in 0..num_vec.len() as usize {
+            let idx = num_vec.len() - 1 - i;
+            let num = num_vec[idx];
+            if i == 0 {
+                result = num;
+            }
+            if idx != 0 {
+                let prev = idx - 1;
+                let num_prev = num_vec[prev];
+                if num <= num_prev {
+                    result = result + num_prev;
+                } else {
+                    result = result - num_prev;
+                }
+                continue;
+            } else {
+                break;
+            }
+        }
         result
     }
 }
 
 fn main() {
-    // TODO
-    let result = Solution::roman_to_int("MCMXCIV");
+    let result = Solution::roman_to_int("MCMXCIV".to_string());
     let expect = 1994;
-    assert_eq!(result, expect)
+    assert_eq!(result, expect);
     println!("success");
 }
