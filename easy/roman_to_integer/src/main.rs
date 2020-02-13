@@ -51,6 +51,15 @@ struct Solution {}
 
 impl Solution {
     pub fn roman_to_int(s: String) -> i32 {
+        let bytes = s.as_bytes();
+        let mut num_vec = vec![];
+        // IVXLCDM 
+        // 对应 ascii  [73, 86, 88, 76, 67, 68, 77]
+        // 对应数值 [1, 5, 10, 50, 100, 500, 1000]
+        for i in 0..bytes.len() as usize {
+            
+        }
+
         let result = 1994;
         result
     }
