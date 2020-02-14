@@ -50,6 +50,7 @@ impl Solution {
         let mut max_count = 0;
 
         let str_bytes = s.as_bytes();
+
         for i in 0..str_bytes.len() as usize {
             match str_bytes[i] {
                 40 => min_count += 1, 
@@ -82,13 +83,21 @@ impl Solution {
                     }
                 }
             }
-            
         }
+
+        if min_count > 0 || mid_count > 0 || max_count > 0 {
+            result = false;
+        } 
+
         result
     }
 }
 
 fn main() {
+    let result = Solution::is_valid("[".to_string());
+    let expect = false;
+    assert_eq!(result, expect);
+
     let result = Solution::is_valid("()[]{}".to_string());
     let expect = true;
     assert_eq!(result, expect);
