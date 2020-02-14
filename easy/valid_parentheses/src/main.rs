@@ -33,6 +33,73 @@
 题目链接：https://leetcode-cn.com/problems/valid-parentheses
 */
 
+struct Solution {}
+
+impl Solution {
+    pub fn is_valid(s: String) -> bool {
+        let mut result = true;
+        // let min_start = 40; // 小括号开始 "("
+        // let min_end = 41; // 小括号闭合  ")"
+        // let mid_start = 91; // 中括号开始 "["
+        // let mid_end = 93; // 中括号闭合 "]"
+        // let max_start = 123; // 中括号开始 "{"
+        // let max_end = 125; // 中括号闭合 "}"
+
+        let mut min_count = 0;
+        let mut mid_count = 0;
+        let mut max_count = 0;
+
+        let str_bytes = s.as_bytes();
+        for i in 0..str_bytes.len() as usize {
+            match str_bytes[i] {
+                40 => min_count += 1, 
+                41 => min_count -= 1, 
+                91 => mid_count += 1, 
+                93 => mid_count -= 1, 
+                123 => max_count += 1, 
+                125 => max_count -= 1, 
+                _=> continue,
+            }
+            if min_count < 0 || mid_count < 0 || max_count < 0 {
+                result = false;
+                break;
+            }
+            if i > 0 {
+                if str_bytes[i] == 41 {
+                    if str_bytes[i - 1] == 91 || str_bytes[i - 1] == 123 {
+                        result = false;
+                        break;
+                    }
+                } else if str_bytes[i] == 93 {
+                    if str_bytes[i - 1] == 40 || str_bytes[i - 1] == 123 {
+                        result = false;
+                        break;
+                    }
+                } else if str_bytes[i] == 125 {
+                    if str_bytes[i - 1] == 40 || str_bytes[i - 1] == 91 {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+            
+        }
+        result
+    }
+}
+
 fn main() {
-    println!("Hello, world!");
+    let result = Solution::is_valid("()[]{}".to_string());
+    let expect = true;
+    assert_eq!(result, expect);
+
+    let result = Solution::is_valid("{[]}".to_string());
+    let expect = true;
+    assert_eq!(result, expect);
+
+    let result = Solution::is_valid("([)]".to_string());
+    let expect = false;
+    assert_eq!(result, expect);
+
+    println!("success!");
 }
