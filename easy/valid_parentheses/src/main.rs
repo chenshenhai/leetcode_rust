@@ -50,38 +50,28 @@ impl Solution {
         let mut max_count = 0;
 
         let str_bytes = s.as_bytes();
+        let stack = std::vec::Vec::new();
 
         for i in 0..str_bytes.len() as usize {
-            match str_bytes[i] {
-                40 => min_count += 1, 
-                41 => min_count -= 1, 
-                91 => mid_count += 1, 
-                93 => mid_count -= 1, 
-                123 => max_count += 1, 
-                125 => max_count -= 1, 
-                _=> continue,
-            }
-            if min_count < 0 || mid_count < 0 || max_count < 0 {
-                result = false;
-                break;
-            }
-            if i > 0 {
-                if str_bytes[i] == 41 {
-                    if str_bytes[i - 1] == 91 || str_bytes[i - 1] == 123 {
-                        result = false;
-                        break;
-                    }
-                } else if str_bytes[i] == 93 {
-                    if str_bytes[i - 1] == 40 || str_bytes[i - 1] == 123 {
-                        result = false;
-                        break;
-                    }
-                } else if str_bytes[i] == 125 {
-                    if str_bytes[i - 1] == 40 || str_bytes[i - 1] == 91 {
-                        result = false;
-                        break;
-                    }
+            // match str_bytes[i] {
+            //     40 => min_count += 1, 
+            //     41 => min_count -= 1, 
+            //     91 => mid_count += 1, 
+            //     93 => mid_count -= 1, 
+            //     123 => max_count += 1, 
+            //     125 => max_count -= 1, 
+            //     _=> continue,
+            // }
+            if str_bytes[i] == 40 || str_bytes[i] == 91 || str_bytes[i] == 123 {
+                if str_bytes[i] == 40 {
+                    stack.push(41);
+                } else if str_bytes[i] == 91 {
+                    stack.push(93);
+                } if str_bytes[i] == 123 {
+                    stack.push(125);
                 }
+            } else {
+                
             }
         }
 
@@ -107,6 +97,10 @@ fn main() {
     assert_eq!(result, expect);
 
     let result = Solution::is_valid("([)]".to_string());
+    let expect = false;
+    assert_eq!(result, expect);
+
+    let result = Solution::is_valid("[([]])".to_string());
     let expect = false;
     assert_eq!(result, expect);
 
