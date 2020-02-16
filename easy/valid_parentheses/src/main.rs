@@ -46,7 +46,7 @@ impl Solution {
         let max_end = 125; // 中括号闭合 "}"
 
         let str_bytes = s.as_bytes();
-        let stack = std::vec::Vec::new();
+        let mut stack = std::vec::Vec::new();
 
         for i in 0..str_bytes.len() as usize {
             if str_bytes[i] == min_start || str_bytes[i] == mid_start || str_bytes[i] == max_start {
@@ -59,11 +59,11 @@ impl Solution {
                 }
             } else {
                 let out = stack.pop();
-                if out == min_end && str_bytes[i] == min_end {
+                if out == Some(min_end) && str_bytes[i] == min_end {
                     continue;
-                } else if out == mid_end && str_bytes[i] == mid_end {
+                } else if out == Some(mid_end) && str_bytes[i] == mid_end {
                     continue; 
-                } else if out == max_end && str_bytes[i] == max_end {
+                } else if out == Some(max_end) && str_bytes[i] == max_end {
                     continue; 
                 } else {
                     result = false;
