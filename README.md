@@ -16,7 +16,7 @@
 |13|[罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer)|[Rust解题](./easy/roman_to_integer/src/main.rs)||
 |14|[最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix)|[Rust解题](./easy/longest_common_prefix/src/main.rs)||
 |20|[有效括号](https://leetcode-cn.com/problems/valid-parentheses)|[Rust解题](./easy/valid_parentheses/src/main.rs)||
-|21|[合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)|// TODO||
+|21|[合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)|[Rust解题](./easy/merge_two_sorted_lists/src/main.rs)||
 |26|[删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)|// TODO||
 |27|[移除元素](https://leetcode-cn.com/problems/remove-element/)|// TODO||
 |#|[](https://leetcode-cn.com/problems/)|[//TODO]()||

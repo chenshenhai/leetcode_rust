@@ -43,6 +43,12 @@ for (int i = 0; i < len; i++) {
 题目链接：https://leetcode-cn.com/problems/remove-element
 */
 
+impl Solution {
+    pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
+        
+    }
+}
+
 fn main() {
     println!("Hello, world!");
 }
