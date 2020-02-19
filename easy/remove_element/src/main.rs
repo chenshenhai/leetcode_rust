@@ -43,12 +43,37 @@ for (int i = 0; i < len; i++) {
 题目链接：https://leetcode-cn.com/problems/remove-element
 */
 
+struct Solution {}
+
 impl Solution {
     pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
-        
+        let mut idx = 0;
+        while nums.len() > 0 && nums.len() > idx {
+            if nums[idx] == val {
+                nums.remove(idx);
+            } else {
+                idx += 1;
+            }
+        }
+        let result = nums.len() as i32;
+        return result;
     }
 }
 
 fn main() {
-    println!("Hello, world!");
+    let mut vec = vec![0, 1, 2, 2, 3, 0, 4, 2];
+    let nums = &mut vec;
+    let result = Solution::remove_element(nums, 2);
+    let expect = 5;
+    assert_eq!(result, expect);
+
+
+    let mut vec = vec![3,2,2,3];
+    let nums = &mut vec;
+    let result = Solution::remove_element(nums, 3);
+    let expect = 2;
+    assert_eq!(result, expect);
+
+
+    println!("success!");
 }
