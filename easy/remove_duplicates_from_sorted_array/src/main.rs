@@ -44,10 +44,33 @@ struct Solution {}
 
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        
+        let mut idx = 1;
+        while nums.len() > 0 && nums.len() > idx {
+            if nums[idx - 1] == nums[idx] {
+                nums.remove(idx);
+            } else {
+                idx += 1;
+            }
+        }
+    
+        let result = nums.len() as i32;
+        result
     }
 }
 
 fn main() {
-    println!("Hello, world!");
+
+    let mut vec = vec![1,1,2];
+    let nums = &mut vec;
+    let expect = 2;
+    let result = Solution::remove_duplicates(nums);
+    assert_eq!(result, expect);
+
+    let mut vec = vec![0,0,1,1,1,2,2,3,3,4];
+    let nums = &mut vec;
+    let expect = 5;
+    let result = Solution::remove_duplicates(nums);
+    assert_eq!(result, expect);
+
+    println!("success!");
 }
