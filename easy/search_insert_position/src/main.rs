@@ -41,7 +41,7 @@ impl Solution {
                     break;
                 } 
             }
-            if i == nums.len() - 1 {
+            if i == nums.len() - 1 && target > nums[i] {
                 result = nums.len() as i32;
             }
         }

@@ -8,7 +8,7 @@
 
 ### 简单题目
 
-|LeetCode题号|题目连接|Rust解题|可学到Rust内容|备注|
+|原题号|LeetCode题目连接|Rust解题|可学习到Rust内容|备注|
 |---|---|---|---|---|
 |1|[两数之和](https://leetcode-cn.com/problems/two-sum/)|[Rust解题](./easy/two_sum/src/main.rs)|||
 |7|[整数翻转](https://leetcode-cn.com/problems/reverse-integer/)|[Rust解题](./easy/reverse_integer/src/main.rs)|||
@@ -19,7 +19,9 @@
 |21|[合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)|[Rust解题](./easy/merge_two_sorted_lists/src/main.rs)|链表指针操作||
 |26|[删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)|[Rust解题](./easy/remove_duplicates_from_sorted_array/src/main.rs)|vec的remove操作||
 |27|[移除元素](https://leetcode-cn.com/problems/remove-element/)|[Rust解题](./easy/remove_element/src/main.rs)|vec的remove操作||
-|28|[实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)|[Rust解题](./easy/implement_strstr/src/main.rs)|||
-|35|[搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)|[Rust解题](./easy/search_insert_position/src/main.rs)|||
+|28|[实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)|[Rust解题](./easy/implement_strstr/src/main.rs)|字符串转ASCII码操作||
+|35|[搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)|[Rust解题](./easy/search_insert_position/src/main.rs)|vec的遍历操作||
+|#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
+|#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
 |#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
 
