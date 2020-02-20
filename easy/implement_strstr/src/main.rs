@@ -32,6 +32,7 @@ impl Solution {
         let mut result = -1;
         let haystack_vec = haystack.as_bytes();
         let needle_vec = needle.as_bytes();
+
         if haystack_vec.len() > 0 && needle_vec.len() > 0 && needle_vec.len() < haystack_vec.len() {
             let char2 = needle_vec[0];
             for i in 0..haystack_vec.len() as usize {
@@ -54,6 +55,8 @@ impl Solution {
                     break;
                 }
             }
+        } else {
+            result = 0;
         }
 
         result
@@ -72,6 +75,12 @@ fn main() {
     let needle = String::from("bba");
     let result = Solution::str_str(haystack, needle);
     let expect = -1;
+    assert_eq!(result, expect);
+
+    let haystack = String::from("");
+    let needle = String::from("");
+    let result = Solution::str_str(haystack, needle);
+    let expect = 0;
     assert_eq!(result, expect);
     println!("success!");
 }
