@@ -21,7 +21,7 @@
 |27|[移除元素](https://leetcode-cn.com/problems/remove-element/)|[Rust解题](./easy/remove_element/src/main.rs)|vec的remove操作||
 |28|[实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)|[Rust解题](./easy/implement_strstr/src/main.rs)|字符串转ASCII码操作||
 |35|[搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)|[Rust解题](./easy/search_insert_position/src/main.rs)|vec的遍历操作||
-|#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
-|#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
+|38|[外观数列](https://leetcode-cn.com/problems/count-and-say)|[//TODO]()|||
+|#|[最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)|[//TODO]()|||
 |#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
 
