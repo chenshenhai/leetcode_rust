@@ -55,7 +55,7 @@ impl Solution {
                     break;
                 }
             }
-        } else if haystack_vec.len() == 0 && needle_vec.len() == 0 {
+        } else if (haystack_vec.len() == 0 && needle_vec.len() == 0) || (haystack_vec.len() > 0 && needle_vec.len() == 0) {
             result = 0;  
         } else if haystack_vec.len() == 0 && needle_vec.len() > 0 {
             result = -1;
@@ -89,6 +89,12 @@ fn main() {
     let needle = String::from("a");
     let result = Solution::str_str(haystack, needle);
     let expect = -1;
+    assert_eq!(result, expect);
+
+    let haystack = String::from("a");
+    let needle = String::from("");
+    let result = Solution::str_str(haystack, needle);
+    let expect = 0;
     assert_eq!(result, expect);
     println!("success!");
 }
