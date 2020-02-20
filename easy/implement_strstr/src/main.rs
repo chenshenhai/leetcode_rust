@@ -45,6 +45,8 @@ impl Solution {
                                     result = i as i32;
                                     break;
                                 }
+                            } else {
+                                break;
                             }
                         } else {
                             break;
@@ -102,5 +104,13 @@ fn main() {
     let result = Solution::str_str(haystack, needle);
     let expect = 0;
     assert_eq!(result, expect);
+
+    let haystack = String::from("mississippi");
+    let needle = String::from("sipp");
+    let result = Solution::str_str(haystack, needle);
+    let expect = 6;
+    assert_eq!(result, expect);
+
+
     println!("success!");
 }
