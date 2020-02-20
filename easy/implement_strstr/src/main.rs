@@ -37,17 +37,13 @@ impl Solution {
             let char2 = needle_vec[0];
             for i in 0..haystack_vec.len() as usize {
                 let char1 = haystack_vec[i];
-                if char1 == char2 {
+                if char1 == char2 && haystack_vec.len() - i > needle_vec.len() - 1 {
                     for j in 0..needle_vec.len() as usize {
-                        if i + j < haystack_vec.len() {
-                            if haystack_vec[i + j] == needle_vec[j] {
-                                if j == needle_vec.len() - 1 {
-                                    result = i as i32;
-                                    break;
-                                }
-                            } else {
-                                break;
-                            }
+                        if haystack_vec[i + j] == needle_vec[j] && j == needle_vec.len() - 1 {
+                            result = i as i32;
+                            break;
+                        } else if haystack_vec[i + j] == needle_vec[j] {
+                            continue;
                         } else {
                             break;
                         }
