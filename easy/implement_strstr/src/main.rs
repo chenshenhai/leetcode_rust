@@ -33,12 +33,12 @@ impl Solution {
         let haystack_vec = haystack.as_bytes();
         let needle_vec = needle.as_bytes();
 
-        if haystack_vec.len() > 0 && needle_vec.len() > 0 && needle_vec.len() < haystack_vec.len() {
+        if haystack_vec.len() > 0 && needle_vec.len() > 0 && needle_vec.len() <= haystack_vec.len() {
             let char2 = needle_vec[0];
             for i in 0..haystack_vec.len() as usize {
                 let char1 = haystack_vec[i];
                 if char1 == char2 {
-                    for j in 1..needle_vec.len() as usize {
+                    for j in 0..needle_vec.len() as usize {
                         if i + j < haystack_vec.len() {
                             if haystack_vec[i + j] == needle_vec[j] {
                                 if j == needle_vec.len() - 1 {
@@ -51,7 +51,7 @@ impl Solution {
                         }
                     }
                 } 
-                if result > 0 {
+                if result >= 0 {
                     break;
                 }
             }
@@ -93,6 +93,12 @@ fn main() {
 
     let haystack = String::from("a");
     let needle = String::from("");
+    let result = Solution::str_str(haystack, needle);
+    let expect = 0;
+    assert_eq!(result, expect);
+
+    let haystack = String::from("a");
+    let needle = String::from("a");
     let result = Solution::str_str(haystack, needle);
     let expect = 0;
     assert_eq!(result, expect);
