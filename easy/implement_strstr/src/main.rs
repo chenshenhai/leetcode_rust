@@ -29,11 +29,49 @@ struct Solution {}
 
 impl Solution {
     pub fn str_str(haystack: String, needle: String) -> i32 {
-        
+        let mut result = -1;
+        let haystack_vec = haystack.as_bytes();
+        let needle_vec = needle.as_bytes();
+        if haystack_vec.len() > 0 && needle_vec.len() > 0 && needle_vec.len() < haystack_vec.len() {
+            let char2 = needle_vec[0];
+            for i in 0..haystack_vec.len() as usize {
+                let char1 = haystack_vec[i];
+                if char1 == char2 {
+                    for j in 1..needle_vec.len() as usize {
+                        if i + j < haystack_vec.len() {
+                            if haystack_vec[i + j] == needle_vec[j] {
+                                if j == needle_vec.len() - 1 {
+                                    result = i as i32;
+                                    break;
+                                }
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+                } 
+                if result > 0 {
+                    break;
+                }
+            }
+        }
+
+        result
     }
 }
 
 
 fn main() {
-    println!("Hello, world!");
+    let haystack = String::from("hello");
+    let needle = String::from("ll");
+    let result = Solution::str_str(haystack, needle);
+    let expect = 2;
+    assert_eq!(result, expect);
+
+    let haystack = String::from("aaaaa");
+    let needle = String::from("bba");
+    let result = Solution::str_str(haystack, needle);
+    let expect = -1;
+    assert_eq!(result, expect);
+    println!("success!");
 }
