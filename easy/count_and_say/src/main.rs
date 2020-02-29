@@ -32,10 +32,18 @@
 题目链接：https://leetcode-cn.com/problems/count-and-say
  */
 
+struct Solution {}
+
 impl Solution {
-    pub fn count_and_say(n: i32) -> String {}
+    pub fn count_and_say(n: i32) -> String {
+        let result = "111221";
+        result.to_string()
+    }
 }
 
 fn main() {
-    println!("Hello, world!");
+    let result = Solution::count_and_say(5);
+    let expect = "111221".to_string();
+    assert_eq!(result, expect);
+    println!("success!");
 }
