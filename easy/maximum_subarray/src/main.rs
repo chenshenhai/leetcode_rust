@@ -37,12 +37,12 @@ impl Solution {
 }
 
 fn main() {
-    let nums = vec![-2,1,-3,4,-1,2,1,-5,4];
+    let nums = vec![-2, 1, -3, 4, -1, 2, 1, -5, 4];
     let result = Solution::max_sub_array(nums);
     let expect = 6;
     assert_eq!(result, expect);
 
-    let nums = vec![4,-1,2,1];
+    let nums = vec![4, -1, 2, 1];
     let result = Solution::max_sub_array(nums);
     let expect = 6;
     assert_eq!(result, expect);

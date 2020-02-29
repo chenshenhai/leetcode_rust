@@ -22,6 +22,6 @@
 |28|[实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)|[Rust解题](./easy/implement_strstr/src/main.rs)|字符串转ASCII码, vec操作||
 |35|[搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)|[Rust解题](./easy/search_insert_position/src/main.rs)|vec的遍历操作||
 |38|[外观数列](https://leetcode-cn.com/problems/count-and-say)|[//TODO]()|||
-|53|[最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)|[//TODO][Rust解题](./easy/maximum_subarray/src/main.rs)|vec的遍历操作||
+|53|[最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)|[Rust解题](./easy/maximum_subarray/src/main.rs)|vec的遍历操作||
 |#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
 
