@@ -15,7 +15,7 @@
 
 注意：整数序列中的每一项将表示为一个字符串。
 
- 
+
 
 示例 1:
 
@@ -33,9 +33,7 @@
  */
 
 impl Solution {
-    pub fn count_and_say(n: i32) -> String {
-        
-    }
+    pub fn count_and_say(n: i32) -> String {}
 }
 
 fn main() {
