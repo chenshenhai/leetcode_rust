@@ -36,8 +36,39 @@ struct Solution {}
 
 impl Solution {
     pub fn count_and_say(n: i32) -> String {
-        let result = "111221";
-        result.to_string()
+        let mut result_vec = vec![1];
+        let mut prev_vec = vec![1];
+        for idx in 1..n as usize {
+            let mut count = 1;
+            result_vec = vec![];
+            for i in 0..prev_vec.len() as usize {
+                if i >= prev_vec.len() - 1 {
+                    result_vec.push(count);
+                    result_vec.push(prev_vec[i]);
+                    break;
+                }
+                if prev_vec[i] == prev_vec[i + 1] {
+                    count += 1;
+                    continue;
+                } else {
+                    result_vec.push(count);
+                    result_vec.push(prev_vec[i]);
+                    count = 1;
+                    continue;
+                }
+            }
+            prev_vec = result_vec.clone();
+        }
+
+        prev_vec = result_vec.clone();
+        result_vec = vec![];
+        for i in 0..prev_vec.len() as usize {
+            result_vec.push((prev_vec[i] + 48) as u8);
+        }
+
+        let result = std::str::from_utf8(&result_vec).unwrap().to_string();
+        
+        result
     }
 }
 
