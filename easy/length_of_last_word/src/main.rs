@@ -23,15 +23,20 @@ impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
         let mut result = 0;
         let str_vec: Vec<&str> = s.split(" ").collect();
-        if str_vec.len() > 0 {
-            let code_vec: Vec<u8> = str_vec[str_vec.len() - 1].as_bytes().to_vec();
+        
+        for i in 0..str_vec.len() as usize {
+            let code_vec: Vec<u8> = str_vec[str_vec.len() - i - 1].as_bytes().to_vec();
             result = code_vec.len();
+            if code_vec.len() == 0 || (code_vec.len() == 1 && code_vec[0] == 32) {
+                continue;
+            }
             for j in 0..code_vec.len() as usize {
-                if code_vec[j] < 65 || j > 122 {
+                if code_vec[j] < 65 || code_vec[j] > 122 {
                     result = 0;
                     break;
                 }
             }
+            break;
         }
         result as i32
     }
@@ -41,5 +46,14 @@ fn main() {
     let result = Solution::length_of_last_word("hello world".to_string());
     let expect = 5;
     assert_eq!(result, expect);
+
+    let result = Solution::length_of_last_word("a ".to_string());
+    let expect = 1;
+    assert_eq!(result, expect);
+
+    let result = Solution::length_of_last_word("  HrGChmcHBfJgNAkvUWiKpGMIXKfgWpaCayzCIiyLIiohwtlUTyBkJhLIpkGQtCEuPuvcxPeESbjFAKehZlgABMSdhnSXHFmpoVLgowTQWueRWDzzDtuUPQchqQuKgDivYcqdRSDVdSXuSLbNXVOXYBqaKxXMQrLuwYqTMttANModczDYInVs NiBMMrIoJCUHOpnvOSCEhgubNpRqDPyvreVkiwmiEIVgdTJqevEGZrEOwfySiHCVtKapwpKleAGHGkotZLXbLWXdDg         AEWrFwRTOmDXOpJkdxMqgjHunltzkfIHipwouEeaHJxMZGnyWTVxhUAgJnbrxOpheFLteIlrggIOzqraBWkghyFRVxLyCGnFCFcBtxqFiRXidCundsPyuUiennOnPJBKToAtMlsnOuyVDzfNNkqNvzOxoGDCiMMogqeDBpqyhVisdIlsXrNctqJPuAwYFqICaFKVGnLhHCEkQplQzLSowPHrKWvAJNKNAuiTQslPGLUQcFKysHijmyPUdzThxngUiDdrsPjesNVLLdxwZEkiMkysoBRwZfNaveBIHPtMOUMZLmknTMgNsyLxBJMdqYGKFXWfqBReSKzGhVUOIRbuAwYosZQNOmSmrJaLdXmuVFPTTttpfyvoAtoBepNtPhkgGCjlKxjiLHkjOjPQYbktsTVPdhAqjRsvCDJjrhItWetpxcQKWImOYSuvoRVpmJTyJz           BLHHzdjwSSqAfAhUbDmNNetxPtFXdRbUsOoTYACIRzVjamPhIPbCKudgGUhCIKXJPgltmKTmbcQqxZUeJduunAZjZK     pDobjfINKKkAMIqDWyiHlhPyZnUgrjupuFOxAxCTgnykmYhBdhUvknnqPxCffZTrirecgEwRDAZvltwgkkogERipXSNNwGCTzqsSEnLmuGqUoxnUFBWFPqxiRbJAwQSYYZuzAPWpMboYavDuXYbFpZVeJHILWgEdyWADAEXJqfYozxYhdAjT        ljqOcqkMxKlmUTKPNragwxQTYVvZEfAmVxMBctmhuyKhshkkCCnaGhgfsSdXpsAfoURQpSPADotGrJfyAUOrJcjiwz               BgWbHOvqhyCoakGFWUbpZRfJjArycRgsoxKcsGDMzaeKmrcXzikwiaWzClboCHsxaETnGQfxURJmPRacxnIYsTjjDAMAVfMlxeeVOEgMHuEBHmsQfSsHkqVaHAUMOxaaNTGPPKmtJgZhWywgRQeTPIRWXkAOavnKegKEIcsfEOlCRLcNYUxj       JLaIVUGXUPMExJjrjjTAmnmnorrJzuuEPQiApqCnitcoYNwXjAIQtdOQXZPCYFJntNsCMLyBmxQqtNdysaryMIkIkbrdgtiCsMnIbKFxJZrSPKCsdtzQWqiROXYFEKFfMbcpsEUyrpNendVeLVXprvUXRCNbYwOdHoLzaupFIOrZVLZnoPHe  dtjvAoEYUHHNVnGbAwYGgzfDAlhjwhwohhFGLZhsQRfeZgWwKLTFyxLRWdLeyjkAlMeKxMyQpXfoQaHxnYCVsMOnaI       NZIpbpTkwAwpUYWCXYLNpMzbDHPnnRdXyhJYAlKwnRCtUbHZXqdjCGJdKgbBLUgZFLIQuZDeBznBiSsRLiBFABNRuu             IStumRazQODyumCmlMVtNgFVFMpghbAVuVqzBVnddEDhevVvaigXPrkyllOzcZNrOHJGxesciVhqTkOyBalmguWhlctWQBdvEwWTDnbpWiTeLfmALiFAYnIjqYxvmYEuXafNRhFhHHmOgbnBbOEoEWLhncTcHLfgqpysBoWLmnGFXjfKOriT            afkCxpauSFWJjBENCvkMJlUXHwXTwNyhvrBOLYgXZTyjjyzokZnDoGbKyBruGNBZJbpwIAIlPfyjVoyjQFtNEOZyoX         yfaCoBFuyIsOaXUHjgvAIEXHCKzmDCQVaqPhTMmOjmynkFaEfaoTWAYbQvquzfbEicpGaxymoESHBtakgghkWLhMhF  uBxQLvUgpnzATEkmrWsxLzYMHQwuBpXtvhevZxZPMRXCopYfAjTWbTImPGvoCYoYsVQfrxjXsNNYhuEncJfooYYAAEfbChMBOEmvDwuDTEdEEEtRFOZQfhdlFXxRRxfvlDurickNHbqlQvykEvkcmiwPInjjIzyrafdGOQmTywGMlwaOdOda       hzyGKcCnaPpmBBKVRtWMpHFrHxyDCEwHYibEojGciOLkBCQQkmVEFEQdgjOgLqUuetzLpsWHtVLambwOEfHkgfBHEG           PXgozcxuKLgFMUcBDLXHtcYcbcFZSNbPqRClkRnTJYfHTUmAmTRnvkbZDbxHkOncHSDDnIVeiIUAvaflbpleISZfDOqbFMXnSOyUJMELJAnHnGxPMCxxwOgUiuVSywRNTQlYBiNzYVYInuuLWHRPwZDHWaRtpMWAzCsKsAMCLgnIrpTIamdj    UqhCFRTlxbZPYkRsQjnrdjSjyXSLjZRODjoKLSnyrNOcxBvYrPKZvEvadyosdCkxmhpyyzIKpgkuToBFBPxfStFRND                   MvvnPuHVnSqLWgVWXmSAqpLnzIgZRcpAVkNzEcASysWKBePgscCLuXhWSokdPGptGRaqtrfKGnbFcwcDMrYjywUdluBoAslCuGdaZzLUXpKQPblKzKvJtEmjhlFEmXNFcqdSkcZJmbZoNLuoIxGJqPBzYgiljypFTlTsKCMAgkhosYCHJzSQtQrGnLLEcCWrzlmWHIqcLPRXGeAVTtyREFoaXAklavpBBtLemmwfFmEIpIAQhDxmYPpNBMZneXgIAjalxSyLJiwAuhRSAhhXziZSRyekhwFgkgVcQeWrAGplHYzsSCdlTMNGSthjnAnZwyKWAuOErSeOKKmInlpDViDulvSNcCicsWYAzfwZuIOmTwFyqVKRuTsOeyMiMlAQsIcZuwXfIYNCpXyIAvtboFKpoPWfhGqxJvruWTkaxdmKObizVYtrUzwguSwbuRdylm          ysqClkGhTOhcUdXnGXWVZOOTATfRlLriHWjpbuDAySrIePVVeKNaIiJTEPXCWZOwpkIuggNApptPkhmVoHrRFOAnIdvgBACxNAoXNqFMngitXUXKpcJvsCuiGrgDifpucMxMUpgApGgaIZXIqoFhRrWQPjIOrShsYrJewDrGsDdthMpQNShc               ybuXwsWGQOkPcabMIfjEFaanbAGRnPnQRDCmiMtACkttvxnJMKXbLQQcvesVjaJeXooBeHkQZVwimhSVDNZTGclzRFPeDSyVzjkwuYQGQdSGKpKtDzSXMEGqjHEbOcfLzvIgszzbllwjFNgUNYLSVEjCNpcbLtRAEajvMZGssKjEbPNYSnVG              gMPkAmqEgZoHvlPLQWDIfiKfhBwyOVKaGKIPRkOyxUJnFeSsfMAEDXjQwbGgAeUXeRpxpmrgSUynqxTNIdEsXvlCLe       LLCgDaojcmUBfxZcnvwJsIsOzvcwMSRwMZVnWXrKrQGEgevfVuqJhcvsWKyWnecSrswwMDrZGRalqADvhETIgQINAv                  vYGQXSehuBmBYEgcLzDWQHdmDJWpPTvBYaTGOHBQiWNCiESmiWmnqRSAKiJfHwQUycukpGMkczEgOpnHBXZKmywydP                VzbVcrvJJxWUVUgfTNwciYongJgXeoSqDhQZHjIxjSowMiguEKPymXfKEluPtNwLkzKZiSuhguBljwHkgVnOWlkumv  KftQJtqddKVlNgprWGoxXfYSmvbziAqzrGGeYQUdPtgkYngeWErfWQiDTrpRPfuVwuOHxHVghScPRpfEpTAqEEHpjq         FBzJPecNeRSvTRURYyFEiFqglFBMkitIVqPxFlWSSMeQhxzTNAfGAIlgCzxzqgdRkWqfwPSOteIXbsfWeKZNGibYNO              XpqDNmDSlvBsVGEVdwHKjxkFQsCUsHSdRSyXdwMMhXqKuJylNplwleAbVvTAzEAoYBSBUAyFDLiMWGlmYWnVFFAaNDsVOWfKFgxLwwtYjfDoTcVurgtnKZPKvBRSdnjAlqaXPQygrVyZKdYXLSvZsSSnHyXMNESZRTmaMwsTTIqcjrKkLraDBbqhMAdrzwgDqPGSCTzdCVLrKDofmpzCEXYSgHbFMeUHfBgIASiCAjjpCAefHqLcFOifakIjvItLxSbwRzCkWoyQjy".to_string());
+    let expect = 270;
+    assert_eq!(result, expect);
+
     println!("success!");
 }
