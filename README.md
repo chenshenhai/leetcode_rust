@@ -23,5 +23,6 @@
 |35|[搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)|[Rust解题](./easy/search_insert_position/src/main.rs)|vec的遍历操作||
 |38|[外观数列](https://leetcode-cn.com/problems/count-and-say)|[Rust解题](./easy/count_and_say/src/main.rs)|vec的遍历操作, vec<u8> 转字符||
 |53|[最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)|[Rust解题](./easy/maximum_subarray/src/main.rs)|vec的遍历操作||
+|58|[ 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/)|[Rust解题](./easy/length_of_last_word/src/main.rs)|字符串split操作||
 |#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
 
