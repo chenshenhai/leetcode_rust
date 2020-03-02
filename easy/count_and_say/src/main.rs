@@ -73,6 +73,23 @@ impl Solution {
 }
 
 fn main() {
+
+    let result = Solution::count_and_say(1);
+    let expect = "1".to_string();
+    assert_eq!(result, expect);
+
+    let result = Solution::count_and_say(2);
+    let expect = "11".to_string();
+    assert_eq!(result, expect);
+
+    let result = Solution::count_and_say(3);
+    let expect = "21".to_string();
+    assert_eq!(result, expect);
+
+    let result = Solution::count_and_say(4);
+    let expect = "1211".to_string();
+    assert_eq!(result, expect);
+
     let result = Solution::count_and_say(5);
     let expect = "111221".to_string();
     assert_eq!(result, expect);
