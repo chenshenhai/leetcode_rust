@@ -25,5 +25,7 @@
 |53|[最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)|[Rust解题](./easy/maximum_subarray/src/main.rs)|vec的遍历操作||
 |58|[最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/)|[Rust解题](./easy/length_of_last_word/src/main.rs)|字符串split操作||
 |66|[加一](https://leetcode-cn.com/problems/plus-one/)|[Rust解题](./easy/plus_one/src/main.rs)|vec反转 reverse()||
+|67|[二进制求和](https://leetcode-cn.com/problems/add-binary)|[Rust解题](./easy/add_binary/src/main.rs)|vec反转 reverse()||
+|#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
 |#|[](https://leetcode-cn.com/problems/)|[//TODO]()|||
 
