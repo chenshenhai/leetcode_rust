@@ -54,7 +54,8 @@ impl Solution {
                     stack.push(min_end);
                 } else if str_bytes[i] == mid_start {
                     stack.push(mid_end);
-                } if str_bytes[i] == max_start {
+                }
+                if str_bytes[i] == max_start {
                     stack.push(max_end);
                 }
             } else {
@@ -62,9 +63,9 @@ impl Solution {
                 if out == Some(min_end) && str_bytes[i] == min_end {
                     continue;
                 } else if out == Some(mid_end) && str_bytes[i] == mid_end {
-                    continue; 
+                    continue;
                 } else if out == Some(max_end) && str_bytes[i] == max_end {
-                    continue; 
+                    continue;
                 } else {
                     result = false;
                     break;
@@ -74,7 +75,7 @@ impl Solution {
 
         if stack.len() > 0 {
             result = false;
-        } 
+        }
 
         result
     }
