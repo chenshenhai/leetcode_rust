@@ -58,10 +58,58 @@ impl Solution {
         l1: Option<Box<ListNode>>,
         l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
-        // TODO
-        let nums = vec![7, 0, 8];
-        let list = create_list(nums);
-        return list;
+        let mut l1 = l1;
+        let mut l2 = l2;
+        let mut list = Some(Box::new(ListNode::new(0)));
+
+        let mut node1 = &mut l1;
+        let mut node2 = &mut l2;
+        let mut result_node = &mut list;
+        let mut next_add = 0;
+        while !(node1.is_none() && node2.is_none()) {
+            let mut result_num = 0;
+            result_num += next_add;
+            if node1.is_some() {
+                result_num += node1.as_ref().unwrap().val;
+                match node1 {
+                    Some(node) => {
+                        node1 = &mut node.next;
+                    },
+                    None => {}
+                }
+            }
+            if node2.is_some() {
+                result_num += node2.as_ref().unwrap().val;
+                match node2 {
+                    Some(node) => {
+                        node2 = &mut node.next;
+                    },
+                    None => {}
+                }
+            }
+            if result_num >= 10 {
+                result_num = result_num % 10;
+                next_add = 1;
+            } else {
+                next_add = 0;
+            }
+            match result_node {
+                Some(node) => {
+                    node.next = Some(Box::new(ListNode::new(result_num)));
+                    result_node = &mut node.next;
+                },
+                None => {}
+            }
+        }
+        if next_add > 0 {
+            match result_node {
+                Some(node) => {
+                    node.next = Some(Box::new(ListNode::new(next_add)));
+                },
+                None => {}
+            }
+        }
+        return list.as_mut().unwrap().next.take();
     }
 }
 
@@ -71,9 +119,19 @@ fn main() {
     let list1 = create_list(nums1);
     let list2 = create_list(nums2);
     let result = Solution::add_two_numbers(list1, list2);
-
     let nums_expect = vec![7, 0, 8];
     let expect = create_list(nums_expect);
-    assert_eq!(result, expect)
+    assert_eq!(result, expect);
 
+    let nums1 = vec![5];
+    let nums2 = vec![5];
+    let list1 = create_list(nums1);
+    let list2 = create_list(nums2);
+    let result = Solution::add_two_numbers(list1, list2);
+    let nums_expect = vec![0, 1];
+    let expect = create_list(nums_expect);
+    assert_eq!(result, expect);
+    
+    println!("success!");
+    
 }
