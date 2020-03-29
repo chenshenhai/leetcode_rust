@@ -11,7 +11,7 @@
 |原题号|LeetCode题目连接|Rust解题|可学习到Rust内容|备注|
 |---|---|---|---|---|
 |1|[两数之和](https://leetcode-cn.com/problems/two-sum/)|[Rust解题](./easy/two_sum/src/main.rs)|vec操作||
-|2|[两数相加](https://leetcode-cn.com/problems/add-two-numbers/)|[Rust解题](./easy/add_two_numbers/src/main.rs)|链表操作||
+|2|[两数相加](https://leetcode-cn.com/problems/add-two-numbers/)|[Rust解题](./medium/add_two_numbers/src/main.rs)|链表操作||
 |7|[整数翻转](https://leetcode-cn.com/problems/reverse-integer/)|[Rust解题](./easy/reverse_integer/src/main.rs)|字符串转ASCII码, vec操作||
 |9|[回文数](https://leetcode-cn.com/problems/palindrome-number/)|[Rust解题](./easy/palindrome_number/src/main.rs)|字符串转ASCII码, vec操作||
 |13|[罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer)|[Rust解题](./easy/roman_to_integer/src/main.rs)|字符串转ASCII码, vec操作||
